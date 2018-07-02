@@ -1,18 +1,12 @@
-Iquidus Explorer - 1.6.1
+Iquidus Explorer - 1.7
 ================
 
 An open source block explorer written in node.js.
 
 ### See it in action
 
-*  [Jumbucks](http://explorer.getjumbucks.com)
-*  [Sphere](http://sphere.iquidus.io)
-*  [SAR](http://explorer.sarcoin.info)
-*  [Vanillacoin](https://blockchain.vanillacoin.net/)
-*  [Neoscoin](http://explorer.infernopool.com/)  
-*  [C2Chain](http://c2chain.info/)
-
-*note: If you would like your instance mentioned here contact me*
+*  [Sparklecoin](https://explorer.sparklecoin.com)
+*  [Peercoin](https://explorer.peercoin.net)
 
 ### Requires
 
@@ -40,7 +34,7 @@ Create user with read/write access:
 
 ### Get the source
 
-    git clone https://github.com/iquidus/explorer explorer
+    git clone https://github.com/sparklecoin/explorer explorer
 
 ### Install node modules
 
@@ -104,11 +98,6 @@ Iquidus Explorer is intended to be generic so it can be used with any wallet fol
 
     -daemon -txindex
 
-### Donate
-
-    BTC: 168hdKA3fkccPtkxnX8hBrsxNubvk4udJi
-    JBS: JZp9893FMmrm1681bDuJBU7c6w11kyEY7D
-
 ### Known Issues
 
 **script is already running.**
@@ -139,6 +128,8 @@ Where [SIZE] is an integer higher than the default.
 
 Copyright (c) 2015, Iquidus Technology  
 Copyright (c) 2015, Luke Williams  
+Copyright (c) 2018, Sparklecoin Inc
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
