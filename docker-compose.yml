@@ -1,0 +1,51 @@
+version: '2'
+services:
+  explorer:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    depends_on:
+      - mongo
+      - sparklecoind
+    ports:
+      - "8080:3030"
+    environment:
+      - APP_URL=tseed.sparklecoin.com
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+      - MONGO_DB=explorerdb
+      - MONGO_USERNAME=iquidus
+      - MONGO_PASSWORD=3xp!0reR
+      - RPC_HOST=sparklecoind
+      - RPC_PORT=16021
+      - RPC_USERNAME=randomuser
+      - RPC_PASSWORD=${RPC_PASSWORD}
+  mongo:
+    image: mongo
+    volumes:
+       - ./docker/createmongouser.js:/docker-entrypoint-initdb.d/createmongouser.js:ro
+       - mongodb:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=explorerdb
+  sparklecoind:
+    image: sparklecoin/sparklecoind
+    command:
+      -testnet
+      -rpcallowip=*
+      -rpcport=16021
+      -gen
+    volumes:
+      - sparklecoindb:/home/coin/.sparklecoin
+    ports:
+      - "16021:16021"
+    environment:
+      - SPRK_RPC_USER=randomuser
+      - SPRK_RPC_PASSWORD=${RPC_PASSWORD}
+volumes:
+  mongodb:
+  sparklecoindb:
+#    driver: local
+#    driver_opts:
+#      type: 'none'
+#      o: 'bind'
+#      device: '/var/lib/mongodbbackup'

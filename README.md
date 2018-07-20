@@ -1,8 +1,11 @@
-Iquidus Explorer - 1.6.1
+Iquidus Explorer - 1.7
 ================
 
 An open source block explorer written in node.js.
-you would like your instance mentioned here contact me*
+
+### See it in action
+
+*  [Peercoin](https://explorer.peercoin.net)
 
 ### Requires
 
@@ -30,7 +33,7 @@ Create user with read/write access:
 
 ### Get the source
 
-    git clone https://github.com/iquidus/explorer explorer
+    git clone https://github.com/sparklecoin/explorer explorer
 
 ### Install node modules
 
@@ -124,6 +127,8 @@ Where [SIZE] is an integer higher than the default.
 
 Copyright (c) 2015, Iquidus Technology  
 Copyright (c) 2015, Luke Williams  
+Copyright (c) 2018, Sparklecoin Inc
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
