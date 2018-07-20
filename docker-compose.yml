@@ -6,19 +6,19 @@ services:
       dockerfile: ./docker/Dockerfile
     depends_on:
       - mongo
-      - sparklecoind
+      - peercoind
     ports:
       - "8080:3030"
     environment:
-      - APP_URL=tseed.sparklecoin.com
+      - APP_URL=tseed.peercoin.net
       - MONGO_HOST=mongo
       - MONGO_PORT=27017
       - MONGO_DB=explorerdb
       - MONGO_USERNAME=iquidus
       - MONGO_PASSWORD=3xp!0reR
-      - RPC_HOST=sparklecoind
+      - RPC_HOST=peercoind
       - RPC_PORT=16021
-      - RPC_USERNAME=randomuser
+      - RPC_USERNAME=slimshady
       - RPC_PASSWORD=${RPC_PASSWORD}
   mongo:
     image: mongo
@@ -27,23 +27,22 @@ services:
        - mongodb:/data/db
     environment:
       - MONGO_INITDB_DATABASE=explorerdb
-  sparklecoind:
-    image: sparklecoin/sparklecoind
+  peercoind:
+    image: peerchemist/peercoind
     command:
       -testnet
       -rpcallowip=*
-      -rpcport=16021
-      -gen
+      -rpcport=9904
     volumes:
-      - sparklecoindb:/home/coin/.sparklecoin
+      - peercoindb:/home/coin/.peercoin
     ports:
-      - "16021:16021"
+      - "9904:9904"
     environment:
-      - SPRK_RPC_USER=randomuser
-      - SPRK_RPC_PASSWORD=${RPC_PASSWORD}
+      - PPC_RPC_USER=slimshady
+      - PPC_RPC_PASSWORD=${RPC_PASSWORD}
 volumes:
   mongodb:
-  sparklecoindb:
+  peercoindb:
 #    driver: local
 #    driver_opts:
 #      type: 'none'
