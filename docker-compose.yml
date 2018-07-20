@@ -1,0 +1,50 @@
+version: '2'
+services:
+  explorer:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    depends_on:
+      - mongo
+      - peercoind
+    ports:
+      - "8080:3030"
+    environment:
+      - APP_URL=tseed.peercoin.net
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+      - MONGO_DB=explorerdb
+      - MONGO_USERNAME=iquidus
+      - MONGO_PASSWORD=3xp!0reR
+      - RPC_HOST=peercoind
+      - RPC_PORT=16021
+      - RPC_USERNAME=slimshady
+      - RPC_PASSWORD=${RPC_PASSWORD}
+  mongo:
+    image: mongo
+    volumes:
+       - ./docker/createmongouser.js:/docker-entrypoint-initdb.d/createmongouser.js:ro
+       - mongodb:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=explorerdb
+  peercoind:
+    image: peerchemist/peercoind
+    command:
+      -testnet
+      -rpcallowip=*
+      -rpcport=9904
+    volumes:
+      - peercoindb:/home/coin/.peercoin
+    ports:
+      - "9904:9904"
+    environment:
+      - PPC_RPC_USER=slimshady
+      - PPC_RPC_PASSWORD=${RPC_PASSWORD}
+volumes:
+  mongodb:
+  peercoindb:
+#    driver: local
+#    driver_opts:
+#      type: 'none'
+#      o: 'bind'
+#      device: '/var/lib/mongodbbackup'
