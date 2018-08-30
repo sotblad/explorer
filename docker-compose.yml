@@ -17,9 +17,9 @@ services:
       - MONGO_USERNAME=iquidus
       - MONGO_PASSWORD=3xp!0reR
       - RPC_HOST=peercoind
-      - RPC_PORT=16021
+      - RPC_PORT=19904
       - RPC_USERNAME=slimshady
-      - RPC_PASSWORD=${RPC_PASSWORD}
+      - RPC_PASSWORD=mynameis
   mongo:
     image: mongo
     volumes:
@@ -32,13 +32,12 @@ services:
     command:
       -testnet
       -rpcallowip=*
-      -rpcport=9904
     volumes:
       - peercoindb:/home/coin/.peercoin
     ports:
-      - "9904:9904"
+      - "9904:19904"
     environment:
-      - PPC_RPC_USER=slimshady
+      - PPC_RPC_USER=${RPC_USERNAME}
       - PPC_RPC_PASSWORD=${RPC_PASSWORD}
 volumes:
   mongodb:
