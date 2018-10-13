@@ -6,17 +6,17 @@ services:
       dockerfile: ./docker/Dockerfile
     depends_on:
       - mongo
-      - peercoind
+      - monetaryunitd
     ports:
       - "8080:3030"
     environment:
-      - APP_URL=tseed.peercoin.net
+      - APP_URL=testnetdns.monetaryunit.org
       - MONGO_HOST=mongo
       - MONGO_PORT=27017
       - MONGO_DB=explorerdb
       - MONGO_USERNAME=iquidus
       - MONGO_PASSWORD=3xp!0reR
-      - RPC_HOST=peercoind
+      - RPC_HOST=monetaryunitd
       - RPC_PORT=19904
       - RPC_USERNAME=slimshady
       - RPC_PASSWORD=mynameis
@@ -27,13 +27,13 @@ services:
        - mongodb:/data/db
     environment:
       - MONGO_INITDB_DATABASE=explorerdb
-  peercoind:
-    image: peerchemist/peercoind
+  monetaryunitd:
+    image: muecoin/monetaryunitd
     command:
       -testnet
       -rpcallowip=*
     volumes:
-      - peercoindb:/home/coin/.peercoin
+      - monetaryunitdb:/home/coin/.monetaryunit
     ports:
       - "9904:19904"
     environment:
@@ -41,7 +41,7 @@ services:
       - PPC_RPC_PASSWORD=${RPC_PASSWORD}
 volumes:
   mongodb:
-  peercoindb:
+  monetaryunitdb:
 #    driver: local
 #    driver_opts:
 #      type: 'none'
