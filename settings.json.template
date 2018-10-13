@@ -10,10 +10,10 @@
   "address": "APP_URL",
 
   // coin name
-  "coin": "Sparklecoin",
+  "coin": "MonetaryUnit",
 
   // coin symbol
-  "symbol": "SPRK",
+  "symbol": "MUE",
 
   // logo
   "logo": "/images/logo.png",
@@ -29,7 +29,7 @@
   "theme": "Paper",
 
   // port to listen for requests on.
-  "port" : 3030,
+  "port" : 3001,
 
   // database settings (MongoDB)
   "dbsettings": {
@@ -90,7 +90,7 @@
   //supported markets: bittrex, poloniex, yobit, empoex, bleutrade, cryptopia, ccex
   //default market is loaded by default and determines last price in header
   "markets": {
-    "coin": "SPRK",
+    "coin": "MUE",
     "exchange": "BTC",
     "enabled": ["bittrex"],
     "cryptopia_id": "1658",
@@ -157,6 +157,6 @@
   "labels": {
   //  "JSoEdU717hvz8KQVq2HfcqV9A79Wihzusu": {"label": "Developers address", "type":"primary", "url":"http://example.com"},
   //  "JSWVXHWeYNknPdG9uDrcBoZHztKMFCsndw": {"label": "Cryptsy"}
-      "tTheBurnAddressForSPRKoinsAdeCoLae": {"label": "This is a burn address", "type":"danger"}
+      "tTheBurnAddressForMUEKoinsAdeCoLae": {"label": "This is a burn address", "type":"danger"}
   }
 }
