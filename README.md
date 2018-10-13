@@ -5,7 +5,7 @@ An open source block explorer written in node.js.
 
 ### See it in action
 
-*  [Peercoin](https://explorer.peercoin.net)
+*  [MonetaryUnit](https://explorer.monetaryunit.org)
 
 ### Requires
 
@@ -33,7 +33,7 @@ Create user with read/write access:
 
 ### Get the source
 
-    git clone https://github.com/sparklecoin/explorer explorer
+    git clone https://github.com/muecoin/explorer explorer
 
 ### Install node modules
 
@@ -127,7 +127,7 @@ Where [SIZE] is an integer higher than the default.
 
 Copyright (c) 2015, Iquidus Technology  
 Copyright (c) 2015, Luke Williams  
-Copyright (c) 2018, Sparklecoin Inc
+Copyright (c) 2018, MonetaryUnit Inc
 
 All rights reserved.
 
